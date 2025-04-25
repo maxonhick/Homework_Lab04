@@ -1,0 +1,22 @@
+name: Linux Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler: [gcc, clang]
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y cmake
+    
+    - name: Configure and Build
+      run: |
+        mkdir -p _build
+        cd _build
+        cmake .. -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
+        cmake --build .

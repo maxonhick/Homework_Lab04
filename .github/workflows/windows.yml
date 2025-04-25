@@ -1,0 +1,16 @@
+name: Windows Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Configure and Build
+      run: |
+        mkdir _build
+        cd _build
+        cmake ..
+        cmake --build .
