@@ -8,7 +8,8 @@ endif()
 # Проверяем, не был ли target уже добавлен
 if(NOT TARGET formatter_ex)
     add_library(formatter_ex STATIC formatter_ex.cpp)
-    target_include_directories(formatter_ex PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+    target_include_directories(formatter_ex PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    )
     target_link_libraries(formatter_ex PUBLIC formatter)
-    target_compile_options(formatter_ex PRIVATE -D_GLIBCXX_USE_CXX11_ABI=1)
 endif()
