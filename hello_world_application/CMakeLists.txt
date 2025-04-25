@@ -10,3 +10,4 @@ endif()
 
 add_executable(hello_world hello_world.cpp)
 target_link_libraries(hello_world PRIVATE formatter_ex)
+target_compile_options(hello_world PRIVATE -D_GLIBCXX_USE_CXX11_ABI=1)
