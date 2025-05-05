@@ -8,5 +8,12 @@ project(hello_world LANGUAGES CXX)
 #                   ${CMAKE_CURRENT_BINARY_DIR}/formatter_ex_lib)
 #endif()
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_executable(hello_world hello_world.cpp)
-target_link_libraries(hello_world PRIVATE formatter_ex)
+target_link_libraries(hello_world 
+	PRIVATE 
+		formatter_ex
+		formatter 
+)
