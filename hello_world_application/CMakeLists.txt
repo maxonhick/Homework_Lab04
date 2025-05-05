@@ -8,7 +8,6 @@ target_link_libraries(hello_world
         formatter_ex
         formatter
         solver_lib
-        stdc++
 )
 
 target_include_directories(hello_world PRIVATE

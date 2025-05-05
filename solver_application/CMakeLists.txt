@@ -7,6 +7,5 @@ target_link_libraries(solver
         solver_lib
         formatter_ex
         formatter
-        stdc++
         m
 )
