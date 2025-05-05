@@ -5,6 +5,8 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: windows-latest
+    strategy:
+    	compiler: gcc
     steps:
     - uses: actions/checkout@v2
     
@@ -12,5 +14,5 @@ jobs:
       run: |
         mkdir _build
         cd _build
-        cmake ..
+        cmake .. -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
         cmake --build .
